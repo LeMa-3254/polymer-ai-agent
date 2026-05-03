@@ -1,4 +1,5 @@
-output/
+output/*.json
+output/*.log
 __pycache__/
 *.pyc
 .env
