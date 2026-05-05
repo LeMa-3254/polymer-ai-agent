@@ -22,6 +22,9 @@ from duckduckgo_search import DDGS
 from docx import Document
 from docx.shared import Pt, RGBColor, Inches as DocxInches
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml.ns import qn
+from docx.oxml import OxmlElement
+import docx.opc.constants
 
 from pptx import Presentation
 from pptx.util import Inches, Pt as PPTXPt, Emu
@@ -199,6 +202,36 @@ MUTED_RGB  = RGBColor(0x64, 0x74, 0x8b)
 LIGHT_RGB  = RGBColor(0x94, 0xa3, 0xb8)
 
 
+def _add_hyperlink(paragraph, text, url, size_pt=9):
+    """Add a clickable hyperlink; falls back to plain text if URL is missing/invalid."""
+    if not url or not url.startswith("http"):
+        r = paragraph.add_run(text)
+        r.font.size = Pt(size_pt)
+        r.font.color.rgb = LIGHT_RGB
+        return
+    part = paragraph.part
+    r_id = part.relate_to(url, docx.opc.constants.RELATIONSHIP_TYPE.HYPERLINK, is_external=True)
+    hyperlink = OxmlElement('w:hyperlink')
+    hyperlink.set(qn('r:id'), r_id)
+    new_run = OxmlElement('w:r')
+    rPr = OxmlElement('w:rPr')
+    color_el = OxmlElement('w:color')
+    color_el.set(qn('w:val'), '0563C1')
+    rPr.append(color_el)
+    u = OxmlElement('w:u')
+    u.set(qn('w:val'), 'single')
+    rPr.append(u)
+    sz = OxmlElement('w:sz')
+    sz.set(qn('w:val'), str(size_pt * 2))
+    rPr.append(sz)
+    new_run.append(rPr)
+    t = OxmlElement('w:t')
+    t.text = text
+    new_run.append(t)
+    hyperlink.append(new_run)
+    paragraph._p.append(hyperlink)
+
+
 def _heading(doc, text, size=16, color=NAVY_RGB, bold=True):
     p = doc.add_paragraph()
     r = p.add_run(text)
@@ -271,9 +304,10 @@ def generate_word(data: dict, path: Path):
 
         if f.get("source"):
             src_p = doc.add_paragraph()
-            src_r = src_p.add_run(f"Source: {f['source']}")
+            src_r = src_p.add_run("Source: ")
             src_r.font.size = Pt(9)
             src_r.font.color.rgb = LIGHT_RGB
+            _add_hyperlink(src_p, f["source"], f["source"])
 
         doc.add_paragraph()
 
@@ -293,6 +327,9 @@ def generate_word(data: dict, path: Path):
             br = p.add_run(f"{tool['name']}: ")
             br.bold = True
             p.add_run(tool["purpose"])
+            if tool.get("url"):
+                p.add_run("  ")
+                _add_hyperlink(p, tool["url"], tool["url"])
         doc.add_paragraph()
 
     # Outlook
