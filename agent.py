@@ -193,6 +193,29 @@ def run_agent(client: anthropic.Anthropic) -> dict:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Binary output validation
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _fix_binary_file(path: Path) -> None:
+    """Office files are ZIP-based. If the saved file is base64 text instead of
+    binary (can happen when the CCR agent uses gh-api uploads instead of git
+    push), decode it in-place so the committed file is valid."""
+    import zipfile, base64 as _b64
+    try:
+        with zipfile.ZipFile(path):
+            return  # already valid binary — nothing to do
+    except (zipfile.BadZipFile, Exception):
+        pass
+    try:
+        raw = path.read_bytes().strip()
+        decoded = _b64.b64decode(raw)
+        path.write_bytes(decoded)
+        print(f"  [fixed base64 encoding] {path.name}")
+    except Exception:
+        pass  # leave file as-is if decode also fails
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Word document
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -347,6 +370,7 @@ def generate_word(data: dict, path: Path):
     footer_r.font.color.rgb = LIGHT_RGB
 
     doc.save(path)
+    _fix_binary_file(path)
     print(f"  Word document: {path}")
 
 
@@ -564,6 +588,7 @@ def generate_pptx(data: dict, path: Path):
     slide_outlook(prs, data)
 
     prs.save(path)
+    _fix_binary_file(path)
     print(f"  PowerPoint:    {path}")
 
 
