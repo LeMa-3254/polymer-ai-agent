@@ -2,6 +2,8 @@ name: Generate & Commit Weekly Digest
 
 on:
   workflow_dispatch:          # run manually from the Actions tab
+  schedule:
+    - cron: '0 15 * * 1'      # every Monday 15:00 UTC (08:00 PT)
   push:
     branches: [main]
     paths:
