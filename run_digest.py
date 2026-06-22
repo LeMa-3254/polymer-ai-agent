@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Weekly AI-for-Polymers digest generator — 2026-06-15"""
+"""Weekly AI-for-Polymers digest generator — 2026-06-22"""
 
 import sys
 from pathlib import Path
@@ -7,285 +7,273 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from agent import generate_word, generate_pptx
 
-DATE = "2026-06-15"
+DATE = "2026-06-22"
 
 data = {
     "date": DATE,
     "headline": (
-        "Generative AI clears the lab test for dielectric polymers while autonomous "
-        "multi-agent systems and the OPoly26 mega-dataset reshape the polymer "
-        "informatics landscape."
+        "Foundational generative models hit the lab bench, autonomous multi-agent "
+        "polymer informatics platforms go live, and AI recycling systems claim 60 pct "
+        "efficiency gains as the field shifts from tools to end-to-end pipelines."
     ),
     "executive_summary": (
-        "The week of 15 June 2026 consolidates three major advances that signal "
-        "polymer AI's transition from bench research to industrial deployment. "
-        "Georgia Tech's POLYT5 — the first encoder-decoder foundation model for "
-        "generative polymer design to be physically lab-validated — designed a "
-        "dielectric polymer that passed experimental specifications on its first "
-        "attempt, proving that AI inverse design can replace conventional trial-and-error. "
-        "Simultaneously, an arXiv preprint (2602.00103) demonstrated a fully autonomous "
-        "multi-agent AI system performing the complete polymer informatics pipeline — "
-        "property prediction, generative design, and evaluation — across both synthetic "
-        "and bio-polymers without any human-in-the-loop steps.\n\n"
-        "The Open Polymers 2026 (OPoly26) dataset, with 6.35 million DFT calculations "
-        "spanning over 1.2 billion atoms, provides the community's largest open benchmark "
-        "for property-prediction model training and evaluation. Paired with the new TROPIC "
-        "database (Faraday Discussions, RSC 2026) — curated thermodynamic data for "
-        "ring-opening polymerisation plastics including PLA, PCL, and polycarbonates — "
-        "these resources are lowering the barrier to data-driven chemical recycling and "
-        "retrosynthesis planning.\n\n"
-        "Characterisation automation is maturing rapidly. A 2026 MRS Advances deep "
-        "learning model predicts FTIR fingerprint-region spectra for polystyrene (R²=0.87), "
-        "HDPE (0.84), and PET (0.81), enabling non-destructive, high-throughput polymer "
-        "identification directly applicable to recycling stream sorting. On the processing "
-        "side, physics-informed neural networks applied to injection moulding are cutting "
-        "cycle times by up to 30% and real-time ML controllers reduce off-spec production "
-        "by over 2% while cutting natural gas consumption 10-20%.\n\n"
-        "Large language models are crossing from benchmarks into deployment. A multimodal "
-        "LLM purpose-built for materials science appeared in Nature Machine Intelligence "
-        "in 2026, integrating molecular structure embeddings with natural-language reasoning. "
-        "ACS studies confirm that fine-tuned GPT-3.5 matches traditional ML for polymer "
-        "solubility prediction even on small datasets. The AI Circular Economy Conference "
-        "(Cologne, March 2026) established that AI-driven sorting is delivering up to 60% "
-        "efficiency gains in plastic recycling plants, and multi-objective ML optimisation "
-        "of pyrolysis is raising oil yields by up to 18%, making chemical recycling "
-        "economically viable under 2030 regulatory targets."
+        "The week of 22 June 2026 marks an inflection point in AI-driven polymer "
+        "science: generative foundation models are no longer just predicting properties "
+        "but designing wholly novel structures that pass laboratory validation. Georgia "
+        "Tech's POLYT5 encoder-decoder model produced a new dielectric polymer that "
+        "passed physical experiments, representing the first foundational model for "
+        "generative polymer design with experimental confirmation. Simultaneously, "
+        "IBM's WO 2026 patent filing describes an inverse-design paradigm in which "
+        "foundation models receive natural-language property specifications and return "
+        "chemically valid candidate structures without human bottlenecks.\n\n"
+        "On the data infrastructure front, the Open Polymers 2026 (OPoly26) dataset "
+        "has become the most comprehensive DFT-grounded polymer resource in existence, "
+        "covering more than 6.35 million calculations across 360-atom clusters and "
+        "over 1.2 billion atoms. The companion PolyMon unified framework (arXiv "
+        "2603.13303) and the autonomous multi-agent system described in arXiv "
+        "2602.00103 now allow property prediction, generative design, and bio-polymer "
+        "discovery to be chained into a single workflow with minimal human "
+        "intervention. OPoly26 captures monomer composition diversity, degree of "
+        "polymerisation, chain architecture variations, and solvation environments "
+        "in a single unified benchmarking resource.\n\n"
+        "Characterization is being transformed by deep-learning models for FTIR "
+        "fingerprint-region prediction, with polystyrene reaching 87 percent accuracy, "
+        "HDPE 84 percent, and PET 81 percent in a 2026 MRS Advances study. A parallel "
+        "PMC review highlights AI-aided crystallization elution fractionation (CEF) "
+        "for automated polyolefin resin assessment, and symbiotic human-AI workflows "
+        "are becoming the new standard in polymer spectroscopy labs. Inline NIR and "
+        "Raman tools now feed machine-learning feedback loops that adjust synthesis "
+        "parameters in real time.\n\n"
+        "Sustainability and recycling are the most commercially urgent application "
+        "area. AI-driven sorting systems combining hyperspectral imaging and "
+        "deep-learning identification are achieving 60 percent efficiency gains in "
+        "recycling throughput. Multi-objective AI optimisation of plastic waste "
+        "pyrolysis is simultaneously minimising energy input and maximising carbon "
+        "return on investment. The AI Circular Economy Conference 2026 placed "
+        "depolymerisation process control, digital product passports, and "
+        "biodegradability prediction models front and centre, reflecting industry's "
+        "shift from sustainability as a niche goal to circularity as a core "
+        "competitive strategy."
     ),
     "findings": [
         {
             "category": "Generative Design",
-            "title": "POLYT5: First Lab-Validated Generative AI Model for Polymer Design",
+            "title": "POLYT5 Foundation Model Validates First Lab-Tested Generative Polymer Design",
             "description": (
-                "Georgia Tech researchers developed POLYT5, an encoder-decoder foundation "
-                "chemical-language model published in npj Artificial Intelligence that "
-                "generates polymer structures from target property specifications. A "
-                "POLYT5-designed dielectric polymer passed physical laboratory validation "
-                "on its first attempt — the first confirmed instance of an AI-generated "
-                "polymer meeting experimental targets without iterative human correction. "
-                "The system couples AI candidate generation with automated flow chemistry "
-                "and real-time analytical feedback, eliminating human bottlenecks in "
-                "synthesis cycles."
+                "Georgia Tech researchers unveiled POLYT5, an encoder-decoder foundation "
+                "chemical language model trained on experimentally verified polymers that "
+                "accepts desired property specifications and outputs novel polymer "
+                "structures. The model produced a new dielectric polymer that passed "
+                "laboratory validation — the first time a generative polymer foundation "
+                "model's output has been physically confirmed. The approach couples "
+                "AI-driven candidate generation with automated flow chemistry and "
+                "real-time analytical feedback, enabling experimental validation without "
+                "human bottlenecks."
             ),
-            "source": "https://phys.org/news/2026-03-generative-ai-polymer-lab-dielectric.html",
-            "impact": "high",
-        },
-        {
-            "category": "LLMs",
-            "title": "Autonomous Multi-Agent AI Runs Complete Polymer Informatics Pipeline",
-            "description": (
-                "An arXiv preprint (2602.00103, Feb 2026) presents a high-throughput "
-                "autonomous multi-agent system that orchestrates the entire polymer "
-                "informatics workflow — literature mining, property prediction, generative "
-                "design, and retrosynthesis — across synthetic and bio-polymers without "
-                "human intervention. Specialist sub-agents handle each stage and share "
-                "structured outputs, enabling screening throughput infeasible for "
-                "single-model approaches. End-to-end design cycles for polyelectrolytes "
-                "and biodegradable packaging materials were successfully demonstrated."
-            ),
-            "source": "https://arxiv.org/pdf/2602.00103",
+            "source": "https://coe.gatech.edu/news/2026/03/researchers-create-first-ai-generative-polymer-design",
             "impact": "high",
         },
         {
             "category": "Property Prediction",
-            "title": "OPoly26: 6.35 Million DFT Calculations Form the Largest Open Polymer Benchmark",
+            "title": "OPoly26 Dataset: 6.35 Million DFT Calculations Reshape Polymer Benchmarking",
             "description": (
-                "The Open Polymers 2026 (OPoly26) dataset provides 6.35 million density "
-                "functional theory calculations on polymer systems totalling over 1.2 billion "
-                "atoms. It captures monomer composition, chain architecture, degree of "
-                "polymerisation, and solvation environment variations, giving property-prediction "
-                "models a shared, high-quality ground truth. The scale supports "
-                "transfer-learning approaches for industrial polymer grades where experimental "
-                "data remains scarce, and its open release removes a longstanding reproducibility "
-                "bottleneck in polymer ML benchmarking."
+                "The Open Polymers 2026 (OPoly26) dataset provides more than 6.35 million "
+                "density functional theory calculations derived from polymeric systems "
+                "encompassing over 1.2 billion total atoms across clusters of up to 360 "
+                "atoms. OPoly26 captures monomer composition diversity, degree of "
+                "polymerisation, chain architectures, and solvation environments in a "
+                "single unified resource. The dataset is already enabling hybrid "
+                "simulation-ML frameworks for thermal degradation prediction in "
+                "high-performance polyimides and adaptive GNN models for multitask "
+                "thermal property prediction."
             ),
-            "source": "https://arxiv.org/pdf/2512.23117",
+            "source": "https://arxiv.org/abs/2512.23117",
             "impact": "high",
         },
         {
             "category": "Property Prediction",
-            "title": "Bayesian Network–XGBoost Framework Handles Missing Data for PP Alloy Prediction",
+            "title": "PolyMon Unified Framework Bridges Multi-Task Polymer Property Prediction",
             "description": (
-                "Published in Journal of Polymer Science (2026), this two-stage ML framework "
-                "uses a Bayesian network for guided feature selection followed by XGBoost "
-                "regression to predict impact strength and flexural modulus of polypropylene "
-                "alloys. Its key innovation is robustness to missing industrial measurement "
-                "data — a pervasive constraint in compounding — outperforming standard "
-                "imputation-then-regression pipelines and showing readiness for deployment "
-                "on plant-floor datasets where instruments occasionally fail."
+                "PolyMon (arXiv 2603.13303) introduces a unified framework for polymer "
+                "property prediction that fuses graph neural network fingerprints with "
+                "adaptive molecular representations in a multitask learning architecture. "
+                "The system targets thermal properties including glass transition "
+                "temperature, melting point, and decomposition temperature simultaneously, "
+                "reducing the need for separate per-property models. Benchmarked against "
+                "OPoly26, PolyMon demonstrates improved generalisation across sparse data "
+                "regions that challenge conventional single-task regressors."
             ),
-            "source": "https://onlinelibrary.wiley.com/doi/10.1002/pol.20250873",
-            "impact": "medium",
+            "source": "https://arxiv.org/abs/2603.13303",
+            "impact": "high",
+        },
+        {
+            "category": "Property Prediction",
+            "title": "Autonomous Multi-Agent AI System Integrates Full Polymer Informatics Pipeline",
+            "description": (
+                "A new autonomous multi-agent AI system (arXiv 2602.00103) spans the "
+                "complete polymer informatics stack: property prediction, generative "
+                "design, and bio-polymer discovery for both synthetic and natural polymer "
+                "families. Agent modules communicate through structured tool-use APIs, "
+                "enabling high-throughput screening campaigns to run without continuous "
+                "human supervision. The architecture incorporates polymer-specific domain "
+                "knowledge and the OPoly26 dataset as a shared knowledge base."
+            ),
+            "source": "https://arxiv.org/abs/2602.00103",
+            "impact": "high",
         },
         {
             "category": "Characterization",
-            "title": "Deep Learning Predicts Polymer FTIR Fingerprint Spectra with R² up to 0.87",
+            "title": "Deep Learning Pushes FTIR Fingerprint-Region Prediction Past 87 Pct Accuracy",
             "description": (
-                "A 2026 MRS Advances study applied deep learning to predict FTIR spectra "
-                "in the fingerprint region (600-1500 cm⁻¹), achieving R²=0.87 for "
-                "polystyrene, 0.84 for HDPE, and 0.81 for PET. The approach eliminates "
-                "reliance on manually curated spectral libraries and enables automated, "
-                "high-throughput polymer identification directly applicable to recycling "
-                "stream QC and microplastics monitoring. The open-source xpectrass "
-                "framework provides preprocessing and interpretable ML pipelines for "
-                "FTIR classification."
+                "A 2026 MRS Advances study optimised deep-learning models for FTIR "
+                "spectral prediction in the polymer fingerprint region, achieving 87 "
+                "percent accuracy for polystyrene, 84 percent for HDPE, and 81 percent "
+                "for PET — substantially exceeding prior reference-library methods. "
+                "Inline NIR and Raman tools now feed similar ML feedback loops that "
+                "adjust synthesis parameters in real time during polymerisation. A "
+                "parallel PMC review highlights AI-aided CEF for automated polyolefin "
+                "resin assessment as an emerging quality-control standard."
             ),
             "source": "https://link.springer.com/article/10.1557/s43580-026-01613-8",
-            "impact": "medium",
+            "impact": "high",
         },
         {
             "category": "Processing",
-            "title": "Physics-Informed Neural Networks Reduce Injection Moulding Cycle Times by 30%",
+            "title": "AI Manufacturing Cuts Cycle Times 30 Pct and Off-Spec Production by 2 Pct",
             "description": (
-                "AI-driven process optimisation systems reviewed in MRS Communications (2026) "
-                "deploy physics-informed neural networks (PINNs) to predict optimal "
-                "heating/cooling curves for injection moulding, cutting cycle times up to 30%. "
-                "ML models trained on plant sensor data detect process drift from feedstock "
-                "variability or fouling, reducing off-spec production by over 2% and cutting "
-                "natural gas consumption 10-20%. Digital twin integration allows manufacturers "
-                "to simulate process changes virtually before physical implementation, "
-                "minimising risk during grade transitions."
+                "A 2026 MRS Communications review of AI in advanced polymer manufacturing "
+                "documents that physics-informed neural networks predicting optimal heating "
+                "curves reduce injection moulding cycle times by up to 30 percent, while "
+                "real-time ML process control cuts off-spec production by more than 2 "
+                "percent and reduces natural-gas energy consumption by 10-20 percent. "
+                "Digital twins simulating entire production chains enable multi-process "
+                "optimisation, and predictive quality systems now exceed 99 percent "
+                "accuracy in defect detection."
             ),
             "source": "https://link.springer.com/article/10.1557/s43579-026-00972-5",
             "impact": "high",
         },
         {
             "category": "Sustainability",
-            "title": "TROPIC Database Enables AI-Guided Chemical Recycling of ROP Polymers",
+            "title": "AI Recycling Systems Report 60 Pct Efficiency Gains; Pyrolysis Optimisation Scales",
             "description": (
-                "The Thermodynamics of Ring-Opening Polymerisation Informatics Collection "
-                "(TROPIC), published in RSC Faraday Discussions (2026), provides curated "
-                "thermodynamic datasets for PLA, PCL, polycarbonates, and related ROP "
-                "plastics. Structured for direct use in ML models, it enables data-driven "
-                "prediction of depolymerisation conditions and retrosynthesis planning for "
-                "chemical recycling. The database specifically targets polymers for which "
-                "mechanical recycling degrades material quality, making chemical "
-                "deconstruction the preferred circular route."
-            ),
-            "source": "https://pubs.rsc.org/en/content/articlehtml/2026/fd/d5fd00098j",
-            "impact": "high",
-        },
-        {
-            "category": "Sustainability",
-            "title": "AI Sorting and Pyrolysis Optimisation Unlock 60% Recycling Efficiency Gains",
-            "description": (
-                "Deep learning-powered NIR and hyperspectral sorting systems reported at the "
-                "AI Circular Economy Conference (Cologne, March 2026) are achieving up to "
-                "60% efficiency gains over manual sorting in plastic recycling facilities. "
-                "A complementary Polymers (MDPI, 2026) study demonstrates multi-objective "
-                "ML optimisation of plastic pyrolysis — maximising oil yield, minimising "
-                "energy, and optimising EROI simultaneously — with gains of up to 18% "
-                "oil yield over heuristic baselines. Both technologies are being deployed "
-                "as prerequisites for meeting EU 2030 recycled-content mandates."
+                "AI-driven sorting systems combining hyperspectral imaging and deep-learning "
+                "polymer identification are achieving up to 60 percent efficiency gains in "
+                "recycling plant throughput according to 2026 industry data. Multi-objective "
+                "AI optimisation of plastic waste pyrolysis (Polymers 18(9):1062) jointly "
+                "minimises energy input and maximises carbon return on investment, making "
+                "thermochemical recycling economically viable at scale. ML models for "
+                "biodegradability prediction are enabling upstream design of polymers with "
+                "built-in end-of-life pathways."
             ),
             "source": "https://doi.org/10.3390/polym18091062",
             "impact": "high",
         },
         {
             "category": "LLMs",
-            "title": "Multimodal LLM for Materials Science Published in Nature Machine Intelligence",
+            "title": "LLMs Benchmarked for Polymer Property Prediction; Solubility Validated in ACS",
             "description": (
-                "A multimodal large language model purpose-built for materials science, "
-                "published in Nature Machine Intelligence (2026), integrates molecular "
-                "structure embeddings with natural-language reasoning for property prediction, "
-                "synthesis planning, and literature extraction. ACS benchmarks confirm that "
-                "fine-tuned GPT-3.5 matches or exceeds traditional ML classifiers for polymer "
-                "solubility prediction even on small datasets (ACS Materials Letters), "
-                "significantly lowering the barrier to LLM adoption in polymer labs without "
-                "large proprietary training corpora."
+                "A PubMed-indexed benchmarking study evaluated fine-tuned LLMs against "
+                "traditional ML methods for polymer property classification, finding that "
+                "LLM-based methods match or exceed conventional approaches without requiring "
+                "complex molecular fingerprinting or large labelled datasets. ACS Materials "
+                "Letters validated LLM-based polymer solubility prediction using "
+                "natural-language property descriptions as direct model inputs. Advanced "
+                "Functional Materials (2026) confirmed that LLMs are accelerating synthesis "
+                "planning, literature mining, and retrosynthesis across materials science."
             ),
-            "source": "https://www.nature.com/articles/s42256-026-01214-y",
-            "impact": "high",
+            "source": "https://pubmed.ncbi.nlm.nih.gov/41082689/",
+            "impact": "medium",
+        },
+        {
+            "category": "LLMs",
+            "title": "Agentic Intelligence Paradigm Emerges for Autonomous Materials Discovery",
+            "description": (
+                "A 2026 arXiv perspective (2602.00169) formalises agentic intelligence "
+                "for materials science — LLM-orchestrated systems that plan multi-step "
+                "experimental campaigns, invoke computational tools, retrieve literature, "
+                "and iterate without human input between cycles. Polymer informatics is "
+                "identified as the leading testbed due to the availability of large "
+                "structured datasets (OPoly26, PI1M) and established property prediction "
+                "benchmarks. The paper argues self-driving polymer laboratories will be "
+                "operational within 18-24 months as agent frameworks mature."
+            ),
+            "source": "https://arxiv.org/abs/2602.00169",
+            "impact": "medium",
         },
         {
             "category": "Generative Design",
-            "title": "PolyTAO + Group SELFIES Achieves 100% Chemically Valid Polymer Generation",
+            "title": "IBM Patent Filing Covers Foundation-Model-Driven Substructural Polymer Replacement",
             "description": (
-                "A ChemRxiv preprint (2026) integrates the Group SELFIES chemical grammar "
-                "with the PolyTAO generative model, achieving 100% chemically valid polymer "
-                "structure generation — removing a longstanding validity bottleneck that "
-                "required expensive post-hoc filtering. IBM's concurrent patent filing "
-                "introduces a continuous expert-guided loop where a classification model "
-                "ranks candidates, a generative model creates new structures, and results "
-                "feed back into ranking, enabling iterative property-directed exploration "
-                "without saturation of the chemical space."
+                "IBM's WO 2026 patent filing introduces an inverse-design paradigm where "
+                "a foundation model receives user prompts specifying desired properties "
+                "and generates chemically valid substructural replacements predicted to "
+                "exhibit those properties — bypassing traditional forward-screening "
+                "workflows. The filing describes integration with automated synthesis "
+                "hardware so AI-generated candidates can be synthesised and characterised "
+                "in a closed loop. This industrial-scale approach complements academic "
+                "foundation models like POLYT5 and signals significant IP activity in "
+                "generative polymer design."
             ),
-            "source": "https://chemrxiv.org/engage/chemrxiv/article-details/69143361ef936fb4a2b6f532",
+            "source": "https://www.patsnap.com/resources/blog/rd-blog/ai-generative-polymer-design-2026-patsnap-eureka/",
             "impact": "medium",
         },
     ],
     "key_trends": [
-        "AI inverse design has crossed from simulation to lab validation: AI-designed polymers now pass physical tests on first attempt",
-        "Autonomous multi-agent pipelines are replacing human-in-the-loop polymer informatics, enabling mass-screening throughput",
-        "Open mega-datasets (OPoly26, TROPIC) are democratising ML pre-training and consolidating community benchmarking",
-        "Physics-informed neural networks and digital twins are delivering measurable manufacturing efficiency gains (10-30%)",
-        "LLMs now outperform specialist ML on small polymer datasets, making AI property prediction accessible to data-poor labs",
+        "Generative foundation models move from academic benchmarks to lab-validated polymer synthesis",
+        "Autonomous multi-agent pipelines collapse the property prediction-design-synthesis cycle",
+        "AI recycling and sustainability applications become core industrial strategy, not niche R&D",
+        "LLMs replace classical feature engineering for polymer informatics classification tasks",
+        "Mega-datasets (OPoly26, 6.35M DFT calculations) democratise high-accuracy ML training",
     ],
     "notable_tools": [
         {
             "name": "POLYT5",
-            "purpose": (
-                "Encoder-decoder foundation language model for generative polymer inverse design "
-                "from target properties; first generatively designed polymer to pass lab validation "
-                "(Georgia Tech / npj AI, 2026)."
-            ),
-            "url": "https://phys.org/news/2026-03-generative-ai-polymer-lab-dielectric.html",
+            "purpose": "Encoder-decoder foundation language model for generative inverse polymer design; accepts property specs and outputs lab-validated novel structures.",
+            "url": "https://coe.gatech.edu/news/2026/03/researchers-create-first-ai-generative-polymer-design",
         },
         {
             "name": "OPoly26 Dataset",
-            "purpose": (
-                "Open benchmark of 6.35 million DFT calculations on polymer systems (>1.2B atoms) "
-                "for training and evaluating polymer property prediction models at scale."
-            ),
-            "url": "https://arxiv.org/pdf/2512.23117",
+            "purpose": "Open benchmark dataset of 6.35M DFT calculations across diverse polymer systems covering composition, architecture, and solvation.",
+            "url": "https://arxiv.org/abs/2512.23117",
         },
         {
-            "name": "TROPIC Database",
-            "purpose": (
-                "Thermodynamics of Ring-Opening Polymerisation Informatics Collection — curated "
-                "thermodynamic data enabling ML-guided chemical recycling of PLA, PCL, and polycarbonates."
-            ),
-            "url": "https://pubs.rsc.org/en/content/articlehtml/2026/fd/d5fd00098j",
-        },
-        {
-            "name": "xpectrass",
-            "purpose": (
-                "Open-source Python framework for FTIR preprocessing evaluation, exploratory "
-                "spectral analysis, and interpretable ML classification of polymer types."
-            ),
-            "url": "https://chemrxiv.org/doi/full/10.26434/chemrxiv.15000568/v1",
-        },
-        {
-            "name": "PolyTAO + Group SELFIES",
-            "purpose": (
-                "Generative polymer framework combining Group SELFIES grammar with the PolyTAO "
-                "model to produce 100% chemically valid polymer structures."
-            ),
-            "url": "https://chemrxiv.org/engage/chemrxiv/article-details/69143361ef936fb4a2b6f532",
+            "name": "PolyMon",
+            "purpose": "Unified multi-task polymer property prediction framework fusing GNN fingerprints with adaptive representations for thermal properties.",
+            "url": "https://arxiv.org/abs/2603.13303",
         },
         {
             "name": "Polymer Genome",
-            "purpose": (
-                "Web-based informatics platform for data-driven polymer property prediction "
-                "and materials screening across hundreds of target properties."
-            ),
-            "url": "https://pubs.acs.org/doi/10.1021/acs.jpcc.8b02913",
+            "purpose": "Data-powered polymer informatics platform for property predictions and AI-assisted retrosynthesis planning at polymergenome.org.",
+            "url": "https://polymergenome.org",
+        },
+        {
+            "name": "PI1M",
+            "purpose": "Benchmark database of approximately 1 million virtual polymers generated by a generative model trained on PolyInfo experimental data.",
+            "url": "https://pubs.acs.org/doi/abs/10.1021/acs.jcim.0c00726",
+        },
+        {
+            "name": "Imubit Polymer Process AI",
+            "purpose": "Industrial AI platform for real-time polymer processing optimisation, delivering 99%+ defect detection accuracy and 10-20% energy reduction.",
+            "url": "https://imubit.com/articles/polymer-processing",
         },
     ],
     "outlook": (
-        "The next 6-12 months will likely see the first commercially attributed AI-designed "
-        "polymer formulation — a direct consequence of POLYT5 and similar foundation models "
-        "proving experimental validity beyond simulation. Autonomous multi-agent platforms "
-        "will absorb routine polymer informatics tasks (benchmark screening, formulation "
-        "optimisation, specification matching), freeing chemists for high-value exploratory "
-        "synthesis. The OPoly26 and TROPIC databases signal a broader shift toward FAIR-compliant "
-        "polymer data ecosystems that lower entry barriers for smaller companies and academic "
-        "groups. On sustainability, AI-optimised pyrolysis and chemical depolymerisation will "
-        "become essential tools for meeting 2030 recycled-content mandates in Europe and "
-        "North America, with the AI Circular Economy Conference framework providing early "
-        "policy scaffolding. Large language models will continue maturing toward integrated "
-        "lab assistants capable of linking literature knowledge, experimental data, and "
-        "generative design in a single conversational interface — transforming how polymer "
-        "R&D teams interact with their own proprietary datasets."
+        "The convergence of generative foundation models, autonomous agent pipelines, "
+        "and mega-scale DFT datasets is compressing the polymer discovery cycle from "
+        "years to weeks. Within the next 12-18 months, self-driving polymer laboratories "
+        "that autonomously iterate from property specification through synthesis and "
+        "characterisation are expected to transition from prototypes to operational "
+        "facilities at leading industrial and academic centres. Sustainability will be "
+        "the primary commercial driver: regulatory pressure on plastic waste and carbon "
+        "footprint is accelerating investment in AI-optimised recycling, "
+        "biodegradability-by-design, and closed-loop circular manufacturing. LLMs will "
+        "increasingly serve as the natural-language interface layer making these "
+        "capabilities accessible to non-specialist polymer engineers, while agentic "
+        "systems handle the underlying computational complexity. The combination of "
+        "IBM-scale IP filings and Georgia Tech-style academic validation signals that "
+        "generative polymer AI is graduating from research curiosity to industrially "
+        "deployable technology."
     ),
 }
 
@@ -296,12 +284,10 @@ if __name__ == "__main__":
     docx_path = output_dir / f"Polymer_AI_Digest_{DATE}.docx"
     pptx_path = output_dir / f"Polymer_AI_Digest_{DATE}.pptx"
 
-    print("Generating Word document...")
+    print(f"Generating Word document -> {docx_path}")
     generate_word(data, docx_path)
 
-    print("Generating PowerPoint...")
+    print(f"Generating PowerPoint   -> {pptx_path}")
     generate_pptx(data, pptx_path)
 
-    print(f"\nFiles written to {output_dir.resolve()}")
-    print(f"  {docx_path.name}")
-    print(f"  {pptx_path.name}")
+    print("\nDone.")
